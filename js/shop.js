@@ -1,3 +1,59 @@
+// =============================================================================
+// TRADUCCIONES DE RUNAS AL ESPAÑOL (botón "VER EN ESPAÑOL" dentro de la tienda)
+// =============================================================================
+const RUNES_ES = {
+    rune_focus:         { name: 'Runa de Enfoque',              desc: 'La mente tranquila siempre encuentra la respuesta. (+10 segundos)' },
+    rune_recovery:      { name: 'Runa de Recuperación',         desc: 'Un error no es el final. (Recupera 1 vida)' },
+    rune_shield:        { name: 'Runa de Escudo',               desc: 'La barrera resiste. (Bloquea el próximo efecto negativo)' },
+    rune_wisdom:        { name: 'Runa de Sabiduría',            desc: 'El conocimiento deja pistas. (Revela una letra)' },
+    rune_calm:          { name: 'Runa de Calma',                desc: 'Mantén la concentración. (Un error no rompe tu racha)' },
+    rune_coin_spark:    { name: 'Runa de Chispa de Monedas',    desc: 'Las pequeñas fortunas crecen. (+0.25 monedas por cada respuesta correcta)' },
+    rune_small_boost:   { name: 'Runa de Pequeño Impulso',      desc: 'Cada punto cuenta. (La siguiente respuesta correcta da +1 punto extra)' },
+    rune_purify:        { name: 'Runa de Purificación',         desc: 'La oscuridad se desvanece. (Elimina los efectos negativos activos)' },
+    rune_double:        { name: 'Runa de Doble',                desc: 'El doble de recompensa. (Puntos x2 durante 30 segundos)' },
+    rune_combo:         { name: 'Runa de Combo',                desc: 'El impulso crea campeones. (Empiezas con racha x2)' },
+    rune_time_lock:     { name: 'Runa de Cerrojo Temporal',     desc: 'El reloj obedece. (Congela el tiempo 15 segundos)' },
+    rune_stamina:       { name: 'Runa de Aguante',              desc: 'La resistencia gana batallas. (Recupera 2 vidas)' },
+    rune_lucky_roll:    { name: 'Runa de Tirada de Suerte',     desc: 'La fortuna favorece a los audaces. (Más probabilidad de multiplicador aleatorio)' },
+    rune_quick_mind:    { name: 'Runa de Mente Rápida',         desc: 'La velocidad se vuelve poder. (+1 punto extra por acierto durante 20 segundos)' },
+    rune_safe_step:     { name: 'Runa de Paso Seguro',          desc: 'Un error gratis. (El próximo error no te quita vida)' },
+    rune_coin_burst:    { name: 'Runa de Estallido de Monedas', desc: 'Gana con el conocimiento. (+1 moneda por cada respuesta correcta)' },
+    rune_point_drain:   { name: 'Runa de Drenaje de Puntos',    desc: 'El poder cambia de manos. (Roba 5 puntos a otro jugador)' },
+    rune_streak_break:  { name: 'Runa Rompe Rachas',            desc: 'Toda racha termina algún día. (Destruye la racha del objetivo)' },
+    rune_silence:       { name: 'Runa de Silencio',             desc: 'Magia sellada. (El objetivo no puede usar runas en su próxima partida)' },
+    rune_time_curse:    { name: 'Runa de Maldición Temporal',   desc: 'El reloj se vuelve tu enemigo. (Quita 10 segundos al objetivo)' },
+    rune_lockdown:      { name: 'Runa de Bloqueo',              desc: 'Tu poder queda sellado. (Bloquea la próxima runa que use el objetivo)' },
+    rune_score_echo:    { name: 'Runa de Eco de Puntaje',       desc: 'El dolor se vuelve fuerza. (Recuperas el 50% de los puntos que te roben)' },
+    rune_pressure:      { name: 'Runa de Presión',              desc: 'Empieza la cacería. (El objetivo pierde 1 segundo cada vez que aciertas, por un minuto)' },
+    rune_shadow_copy:   { name: 'Runa de Copia Sombría',        desc: 'Camina junto a los grandes. (Copia el puntaje de otro jugador sin robárselo)' },
+    rune_crown_breaker: { name: 'Runa Rompe Coronas',           desc: 'La corona cambia de dueño. (Quedas 10 puntos por encima del objetivo)' },
+    rune_position_swap: { name: 'Runa de Cambio de Puesto',     desc: 'El destino intercambia lugares. (Intercambias tu puesto con el jugador elegido)' },
+    rune_time_freeze:   { name: 'Runa de Congelación',          desc: 'Por un momento, el tiempo se detiene. (Congela el tiempo 30 segundos)' },
+    rune_stolen_crown:  { name: 'Runa de Corona Robada',        desc: 'El trono ahora es tuyo. (Roba 10 puntos y la racha del objetivo)' },
+    rune_guardian:      { name: 'Runa Guardiana',               desc: 'Nada mueve al guardián. (Protección de 24 horas contra runas negativas)' },
+    rune_reflect:       { name: 'Runa de Reflejo',              desc: 'Lo que se envía, regresa. (Devuelve el próximo ataque que recibas)' },
+    rune_leader_seal:   { name: 'Runa del Sello del Líder',     desc: 'El camino hacia arriba se cierra. (El objetivo no puede subir puestos durante una partida)' },
+    rune_final_chance:  { name: 'Runa de Última Oportunidad',   desc: 'Un último esfuerzo. (Si llegas a 0 vidas: recuperas 1 vida y +15s. Pierdes la racha)' },
+    rune_reality_shift: { name: 'Runa de Cambio de Realidad',   desc: 'La realidad se dobla. (Intercambias tu puntaje total con el objetivo)' },
+    rune_overdrive:     { name: 'Runa de Sobrecarga',           desc: 'Ya no hay límites. (Puntos x3 durante 30 segundos)' },
+    rune_emperor:       { name: 'Runa del Emperador',           desc: 'Gobierna por encima de todos. (+15 puntos y +2 vidas al instante)' },
+    rune_fate_rewind:   { name: 'Runa del Destino',             desc: 'El tiempo se dobla, pero nunca gratis. (Restaura vidas y tiempo. Pierdes la racha y no puedes ganar racha)' },
+    rune_two_time:      { name: 'Runa de Segunda Vez',          desc: 'El Spawn vio tu caída... y decidió darte otra oportunidad. (Restaura vidas y tiempo, quita efectos negativos. Pierdes la racha)' }
+};
+
+const CATEGORY_LABELS = {
+    Gameplay: { en: 'GAMEPLAY RUNES', es: 'RUNAS DE JUEGO' },
+    Defense:  { en: 'DEFENSE RUNES',  es: 'RUNAS DE DEFENSA' },
+    Attack:   { en: 'ATTACK RUNES',   es: 'RUNAS DE ATAQUE' }
+};
+
+function runeText(rune) {
+    const lang = (typeof Shop !== 'undefined' && Shop.lang === 'es') ? 'es' : 'en';
+    if (lang === 'es' && RUNES_ES[rune.id]) {
+        return { name: rune.name, desc: RUNES_ES[rune.id].desc };
+    }
+    return { name: rune.name, desc: rune.description };
+}
 function toast(msg, type = 'success') {
     const t = document.createElement('div');
     t.className = `tom-toast ${type}`;
@@ -7,6 +63,14 @@ function toast(msg, type = 'success') {
 }
 
 const Shop = {
+    lang: (function () {
+        try { return localStorage.getItem('shopLang') === 'es' ? 'es' : 'en'; } catch (e) { return 'en'; }
+    })(),
+    toggleLang() {
+        this.lang = (this.lang === 'es') ? 'en' : 'es';
+        try { localStorage.setItem('shopLang', this.lang); } catch (e) { }
+        this.renderRunes();
+    },
     currentRuneStock: [],
     consecutiveMisses: 0,
     lastRefreshTime: 0,
@@ -17,6 +81,7 @@ const Shop = {
     },
 
     loadStock() {
+        if (window.TEST_MODE) { this.refreshRuneStock(); return; }
         try {
             const data = JSON.parse(localStorage.getItem('shopRuneStock'));
             if (data && Date.now() - data.time < 600000) {
@@ -32,6 +97,7 @@ const Shop = {
     },
 
     checkRefresh() {
+        if (window.TEST_MODE) { this.refreshRuneStock(); return; }
         if (Date.now() - this.lastRefreshTime >= 600000) {
             this.refreshRuneStock();
             const ov = document.getElementById('shop-overlay');
@@ -43,6 +109,12 @@ const Shop = {
 
     refreshRuneStock() {
         if (typeof RUNES === 'undefined') return;
+
+        if (window.TEST_MODE) {
+            this.currentRuneStock = RUNES.slice();
+            this.lastRefreshTime = Date.now();
+            return;
+        }
 
         let availableRunes = RUNES.filter(r => r.rarity !== 'Secret');
         let stockSize = 6;
@@ -83,6 +155,11 @@ const Shop = {
 
     open() {
         if (!Users.current) { toast('¡Selecciona un usuario primero!', 'error'); return; }
+        if (window.TEST_MODE && Users.data) {
+            Users.data.coins = 5000;
+            if (typeof Users.save === 'function') Users.save();
+            if (typeof Users.updateUI === 'function') Users.updateUI();
+        }
         this.checkRefresh();
         this.render();
         const ov = document.getElementById('shop-overlay');
@@ -158,57 +235,108 @@ const Shop = {
         if (!runesGrid || !Users.data) return;
         runesGrid.innerHTML = '';
 
+        const es = (this.lang === 'es');
+
+        // Botón de idioma
+        const langBar = document.createElement('div');
+        langBar.style.gridColumn = '1 / -1';
+        langBar.style.textAlign = 'center';
+        langBar.style.marginBottom = '10px';
+        const langBtn = document.createElement('button');
+        langBtn.className = 'card-btn';
+        langBtn.style.background = 'linear-gradient(135deg,#0ea5e9,#0f172a)';
+        langBtn.style.color = '#fff';
+        langBtn.style.border = '2px solid #38bdf8';
+        langBtn.style.padding = '8px 14px';
+        langBtn.style.cursor = 'pointer';
+        langBtn.textContent = es ? '🌐 VIEW IN ENGLISH' : '🌐 VER EN ESPAÑOL';
+        langBtn.onclick = () => this.toggleLang();
+        langBar.appendChild(langBtn);
+        runesGrid.appendChild(langBar);
+
         if (!this.currentRuneStock || this.currentRuneStock.length === 0) return;
 
-        this.currentRuneStock.forEach((r, idx) => {
-            const rar = typeof getRuneRarity === 'function' ? getRuneRarity(r.rarity) : null;
-            const color = rar ? rar.color : '#fff';
+        const makeHeader = (text, color) => {
+            const h = document.createElement('div');
+            h.style.gridColumn = '1 / -1';
+            h.style.textAlign = 'center';
+            h.style.fontSize = '0.8em';
+            h.style.color = color;
+            h.style.margin = '12px 0 4px 0';
+            h.style.paddingBottom = '6px';
+            h.style.borderBottom = '2px solid ' + color;
+            h.style.textShadow = '0 0 8px ' + color;
+            h.textContent = text;
+            return h;
+        };
 
-            const card = document.createElement('div');
-            card.className = 'shop-card';
+        const groups = [
+            { cat: 'Gameplay', color: '#00ff4c' },
+            { cat: 'Defense', color: '#00ccff' },
+            { cat: 'Attack', color: '#ff4444' }
+        ];
 
-            const prev = document.createElement('div');
-            prev.className = `card-banner-preview ${r.css}`;
-            prev.style.display = 'flex';
-            prev.style.justifyContent = 'center';
-            prev.style.alignItems = 'center';
-            prev.style.fontSize = '2em';
-            prev.style.color = color;
-            prev.textContent = r.glyph || '?';
-            card.appendChild(prev);
+        groups.forEach(g => {
+            const items = [];
+            this.currentRuneStock.forEach((r, idx) => {
+                if ((r.category || 'Gameplay') === g.cat) items.push({ rune: r, idx: idx });
+            });
+            if (items.length === 0) return;
 
-            const nm = document.createElement('div');
-            nm.className = 'card-name';
-            nm.textContent = r.name;
-            card.appendChild(nm);
+            const label = CATEGORY_LABELS[g.cat] ? CATEGORY_LABELS[g.cat][es ? 'es' : 'en'] : g.cat;
+            runesGrid.appendChild(makeHeader(label, g.color));
 
-            const desc = document.createElement('div');
-            desc.style.fontSize = '0.5em';
-            desc.style.color = '#ccc';
-            desc.style.marginBottom = '5px';
-            desc.style.padding = '0 5px';
-            desc.textContent = r.description;
-            card.appendChild(desc);
+            items.forEach(item => {
+                const r = item.rune;
+                const txt = runeText(r);
+                const rar = typeof getRuneRarity === 'function' ? getRuneRarity(r.rarity) : null;
+                const color = rar ? rar.color : '#fff';
 
-            const rt = document.createElement('div');
-            rt.className = `card-rarity rarity-tag rarity-${r.rarity}`;
-            rt.textContent = r.rarity;
-            card.appendChild(rt);
+                const card = document.createElement('div');
+                card.className = 'shop-card';
 
-            const pr = document.createElement('div');
-            pr.className = 'card-price';
-            pr.textContent = `🪙 ${r.price}`;
-            card.appendChild(pr);
+                const prev = document.createElement('div');
+                prev.className = `card-banner-preview ${r.css}`;
+                prev.style.display = 'flex';
+                prev.style.justifyContent = 'center';
+                prev.style.alignItems = 'center';
+                prev.style.fontSize = '2em';
+                prev.style.color = color;
+                prev.textContent = r.glyph || '?';
+                card.appendChild(prev);
 
-            const btn = document.createElement('button');
-            btn.className = 'card-btn btn-buy';
-            btn.textContent = 'COMPRAR';
-            btn.onclick = () => this.buyRune(r.id, idx);
-            card.appendChild(btn);
+                const nm = document.createElement('div');
+                nm.className = 'card-name';
+                nm.textContent = txt.name;
+                card.appendChild(nm);
 
-            runesGrid.appendChild(card);
+                const desc = document.createElement('div');
+                desc.style.fontSize = '0.5em';
+                desc.style.color = '#ccc';
+                desc.style.marginBottom = '5px';
+                desc.style.padding = '0 5px';
+                desc.textContent = txt.desc;
+                card.appendChild(desc);
+
+                const rt = document.createElement('div');
+                rt.className = `card-rarity rarity-tag rarity-${r.rarity}`;
+                rt.textContent = r.rarity;
+                card.appendChild(rt);
+
+                const pr = document.createElement('div');
+                pr.className = 'card-price';
+                pr.textContent = `🪙 ${r.price}`;
+                card.appendChild(pr);
+
+                const btn = document.createElement('button');
+                btn.className = 'card-btn btn-buy';
+                btn.textContent = es ? 'COMPRAR' : 'BUY';
+                btn.onclick = () => this.buyRune(r.id, item.idx);
+                card.appendChild(btn);
+
+                runesGrid.appendChild(card);
+            });
         });
-
         const secretRune = typeof RUNES !== 'undefined' ? RUNES.find(r => r.id === 'rune_two_time') : null;
         if (secretRune) {
             const rar = typeof getRuneRarity === 'function' ? getRuneRarity(secretRune.rarity) : null;
@@ -240,9 +368,11 @@ const Shop = {
 
             card.appendChild(prev);
 
+            const secretTxt = runeText(secretRune);
+
             const nm = document.createElement('div');
             nm.className = 'card-name';
-            nm.textContent = secretRune.name;
+            nm.textContent = secretTxt.name;
             card.appendChild(nm);
 
             const desc = document.createElement('div');
@@ -250,7 +380,7 @@ const Shop = {
             desc.style.color = '#ccc';
             desc.style.marginBottom = '5px';
             desc.style.padding = '0 5px';
-            desc.textContent = secretRune.description;
+            desc.textContent = secretTxt.desc;
             card.appendChild(desc);
 
             const rt = document.createElement('div');

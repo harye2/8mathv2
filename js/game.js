@@ -369,6 +369,9 @@
                 if (window.RuneState && RuneState.smallBoostActive) {
                     pointsToAdd += 1;
                     RuneState.smallBoostActive = false;
+                    if (typeof showRuneAlert === 'function') {
+                        showRuneAlert("📈 Small Boost — +1 punto extra en esta palabra.", "#ccffaa");
+                    }
                 }
                 if (window.RuneState && RuneState.doublePointsUntil && RuneState.doublePointsUntil > Date.now()) {
                     pointsToAdd *= 2;
@@ -477,9 +480,16 @@
                     Effects.triggerEnergyLossVFX();
                 }
 
-                // Reiniciar racha en respuesta incorrecta
-                this.currentStreak = 0;
-                this.removeStreakVisuals();
+                // Reiniciar racha en respuesta incorrecta (salvo Rune of Calm)
+                if (window.RuneState && RuneState.streakGuardActive) {
+                    RuneState.streakGuardActive = false;
+                    if (typeof showRuneAlert === 'function') {
+                        showRuneAlert("🧘 Rune of Calm — Tu racha se mantiene intacta.", "#99ffcc");
+                    }
+                } else {
+                    this.currentStreak = 0;
+                    this.removeStreakVisuals();
+                }
 
                 // Registrar el fallo en el sistema de colores
                 this.registerAnswer(this.currentWord, false);

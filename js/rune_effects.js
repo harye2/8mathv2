@@ -170,7 +170,7 @@ function applyRune(runeId) {
         return true;
     }
     if (runeId === 'rune_calm') {
-        RuneState.safeStepActive = true;
+        RuneState.streakGuardActive = true;
         showRuneAlert("🧘 Rune of Calm — Tu próximo error no romperá el streak.", "#99ffcc");
         return true;
     }

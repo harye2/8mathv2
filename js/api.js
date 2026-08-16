@@ -244,14 +244,20 @@
             var html = top20.map(function (r, i) {
                 var isTop1 = i === 0;
                 var medal = medals[i] || '';
-                var rowClass = isTop1 ? 'lb-global-row top1-row' : 'lb-global-row';
-                var nameClass = isTop1 ? 'lb-global-name lb-king-name' : 'lb-global-name';
                 var localU = typeof Storage !== 'undefined' ? Storage.getUser(r.name) : null;
                 var bannerId = r.banner || (localU ? localU.equippedBanner : null);
-
+                var bannerCss = '';
                 if (bannerId && typeof getBanner !== 'undefined') {
                     var b = getBanner(bannerId);
-                    if (b) rowClass += ' ' + b.css;
+                    if (b) bannerCss = b.css;
+                }
+
+                var rowClass = isTop1 ? 'lb-global-row top1-row' : 'lb-global-row';
+                var nameClass = 'lb-global-name';
+                if (isTop1 && !bannerCss) nameClass += ' lb-king-name';
+                if (bannerCss) {
+                    rowClass += ' ' + bannerCss;
+                    if (isTop1) rowClass += ' top1-has-banner';
                 }
                 var crownHtml = isTop1 ? '<span class="top1-crown">👑</span>' : '';
                 var scoreStyle = isTop1 ? 'color:#ffd700;font-size:1.1em;font-weight:bold;' : '';

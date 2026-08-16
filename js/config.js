@@ -17,6 +17,12 @@ const CONFIG = {
 
     ADMIN_PASSWORD_HASH: "92115aa11c4ebbd8547544c0d18015d06f5787e79e89936805cb110403725f7e"
 };
-
+// =============================================================================
+// MODO DE PRUEBAS DEL DOCENTE
+// true  = monedas llenas al abrir la tienda + todas las runas disponibles
+// false = juego normal (SIEMPRE dejarlo en false antes de subir los archivos)
+// =============================================================================
+const TEST_MODE = false;
+window.TEST_MODE = TEST_MODE;
 window.CONFIG = CONFIG;
 console.log("⚙️ Configuración global cargada.");

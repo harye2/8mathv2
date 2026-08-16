@@ -282,7 +282,21 @@
         }
 
         /* ===== TOP 1 ROYAL VFX ===== */
-        #leaderboard-list .lb-global-row.top1-row {
+        #leaderboard-list .lb-global-row.top1-row.top1-has-banner {
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            padding: 20px 16px;
+            font-size: 1.05em;
+            box-shadow:
+                0 0 0 3px #ffd700,
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 150, 0, 0.5);
+        }
+
+        #leaderboard-list .lb-global-row.top1-row:not(.top1-has-banner) {
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg,

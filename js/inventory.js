@@ -112,7 +112,12 @@ function renderInventory() {
                     Users.useRune(runeId);
                 });
             } else {
-                Users.useRune(runeId);
+                const ok = Users.useRune(runeId);
+                if (ok) {
+                    const inv = document.getElementById('inventory-overlay');
+                    if (inv) inv.style.display = 'none';
+                    renderInventory();
+                }
             }
         };
 
