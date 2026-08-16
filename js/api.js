@@ -7,7 +7,7 @@
     // =========================================================================
     // 1. URL DEL SERVIDOR — Obtenida de CONFIG si está disponible
     // =========================================================================
-    window.leaderboardAPI = (window.CONFIG && window.CONFIG.API_URL) || "https://script.google.com/macros/s/AKfycbxrLaWJfpp0S5QlCJjKpscoZKvZPcYvYn-XZaMWCU20_v-QNhrz_0vUX8oJynI72Bljmg/exec";
+    window.leaderboardAPI = (window.CONFIG && window.CONFIG.API_URL) || "https://script.google.com/macros/s/AKfycby7VY3l0fBfVt65q2vlmZwN4VxDiUEXPAakngOUpHFUzuTC25V0IT1EvvaLot88TPzDhA/exec";
 
     // =========================================================================
     // 2. CÓDIGOS PROMOCIONALES PREDETERMINADOS
@@ -488,6 +488,14 @@
             }
             if (cloudStreak !== (parseInt(Users.data.maxStreak) || 0)) {
                 Users.data.maxStreak = cloudStreak;
+                changed = true;
+            }
+
+            // La copia interna de la racha también debe seguir a la nube,
+            // si no, una racha vieja reaparece en el leaderboard tras el reinicio
+            if (!Users.data.stats) Users.data.stats = {};
+            if ((parseInt(Users.data.stats.maxStreak) || 0) !== cloudStreak) {
+                Users.data.stats.maxStreak = cloudStreak;
                 changed = true;
             }
 
