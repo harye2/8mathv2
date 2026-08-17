@@ -185,7 +185,7 @@ const levels = [
             'solo': ['alone', 'sólo'],
             'cuando': ['when'],
             'parte': ['part'],
-            'un/una': ['a/an'],
+            'un/una': ['a', 'an'],
             'enojado': ['angry'],
             'pero': ['but'],
             'conflicto': ['conflict'],
